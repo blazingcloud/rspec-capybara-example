@@ -1,0 +1,21 @@
+Example using RSpec & Capybara based on this scenario: https://github.com/blazingcloud/cucumber_lesson/blob/master/manage_news.feature
+
+useful links:
+https://github.com/jnicklas/capybara
+http://codingfrontier.com/integration-testing-setup-with-rspec-2-and-ca
+http://groups.google.com/group/ruby-capybara/browse_thread/thread/15ce294a6f8a52a5
+
+[15:13:54] rachelmyers@rachel-myers-computer spec $ rails consoleLoading development environment (Rails 3.0.3)
+ruby-1.9.2-p0 > app.root_path
+ => "/" 
+
+$ rake routes
+(in /Users/rachelmyers/src/rspec_capybara)
+root  /(.:format) {:controller=>"stories", :action=>"index"}
+
+in order to access routes (e.g. root_url) from specs in a custom integration directory, we needed to add the following line inside the describe block in spec/integration/manage_news_spec.rb
+
+include RSpec::Rails::RequestExampleGroup
+
+see: http://www.ruby-forum.com/topic/686833#969342
+
